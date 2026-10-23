@@ -8,15 +8,18 @@
 
 ## Features
 - **Visual curve editor.** Drag the two handles; hold **Shift** to snap to 0.05. Double-click the graph to reset to Linear.
-- **Type or paste values.** Enter `x1, y1, x2, y2` or paste a CSS `cubic-bezier(0.4, 0, 0.2, 1)`.
+- **Type or paste values.** Click the coordinate readout to enter `x1, y1, x2, y2` or paste a CSS `cubic-bezier(0.4, 0, 0.2, 1)`. The readout uses two decimal places; opening the editor preserves the curve's full precision.
 - **Apply to keyframes.** Eases every pair of neighbouring selected keyframes, on any property (position, scale, opacity, shapes...), in one undo step. Speeds are scaled to each segment, so one curve fits any distance and duration.
 - **Apply to both sides, only the out side (first key), or only the in side (second key).**
 - **Live mode.** Re-applies the curve whenever you release a handle or pick a preset.
 - **From Keys.** Reads the curve of the selected keyframes back into the editor.
 - **Flip.** Reverses the curve.
-- **27 built-in presets:** Sine, Quad, Cubic, Quart, Quint, Expo, Circ and Back (In / Out / In-Out), plus Linear, CSS Ease and Material Standard.
-- **Your own presets.** Type a name and press **Save**; **Rename** and **Delete** manage them. They are stored in EffectCraft's script settings and survive restarts.
-- **Resizable graph.** The **Width** and **Height** sliders set the size of the graph; the size is remembered.
+- **Thumbnail preset library.** Preview each easing curve; the selected preset is highlighted in blue. Choose **default** (25 reference curves), **custom** (saved curves), or **all** (all built-ins and saved curves). The extra Sine, CSS Ease, and Material presets remain available under **all**.
+- **30 built-in presets:** Sine, Quad, Cubic, Quart, Quint, Expo, Circ and Back (In / Out / In-Out), plus Linear, Ease In, Ease Out, Ease In-Out, CSS Ease and Material Standard.
+- **Your own presets.** Press **+** or the **star** to name and save a curve. The pencil and delete icons manage the selected custom preset. Presets are stored in EffectCraft's script settings and survive restarts.
+- **Dark two-column layout.** Host-aware colors match EffectCraft's dark panels without bright gray canvas backgrounds. Vector toolbar icons have hover and pressed feedback.
+- **Preset scrolling.** Drag vertically within the gallery, drag the slim scroll thumb, or click its up/down arrows. Wheel scrolling is also supported on hosts that forward wheel events to scripts. The current EffectCraft ScriptUI bridge does not forward them.
+- **Host sizing.** EffectCraft uses a compact 480 × 340 layout to avoid the previous oversized outer scroll area. Its current ScriptUI bridge does not notify scripts when a dock is resized, so automatic graph resizing there is limited by the host. Hosts that deliver resize callbacks reflow the panel normally.
 
 ## Requirements
 EffectCraft with ScriptUI panel support (any recent version). No other dependencies.
@@ -38,10 +41,12 @@ Put `PFlow.jsx` into the `Scripts/ScriptUI Panels/` folder inside EffectCraft's 
 
 ## How to use
 1. Select two or more neighbouring keyframes on a property in the timeline.
-2. Pick a preset in the list, or shape the curve with the handles and press **Apply**.
-3. Press **From Keys** any time to pull an existing ease into the editor, tweak it, and save it as a preset.
+2. Click a curve thumbnail or shape the curve with the yellow handles, then press **APPLY**. Double-clicking a thumbnail loads and applies it immediately.
+3. Use the three buttons to the left of **APPLY** to choose outgoing, both (the default), or incoming easing.
+4. Press the capture icon to the left of the coordinates to read the selected keyframes into the editor. Click the coordinates to edit or paste a curve.
+5. The library toolbar provides **+** (save), pencil (rename), reverse arrows (flip), power (toggle Live), and trash (delete). Hover over a control for its tooltip.
 
-To save a preset: set the curve, type a name in the field under the list, press **Save**.
+To save a preset, set the curve, click **+** or the **star**, and enter a name. To rename or delete it, select its thumbnail in the **custom** library first. Saving over an existing custom preset or deleting one asks for confirmation.
 
 ## Notes
 - Select **neighbouring** keyframes (for example keys 1 and 2, or 2 and 3). Keys that aren't next to each other are skipped.
