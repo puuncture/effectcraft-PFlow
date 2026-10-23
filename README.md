@@ -2,6 +2,8 @@
 
 **A free easing-curve editor for [EffectCraft](https://github.com/storytold/effectcraft).** Draw a Bezier curve, save it as a preset, and apply it to your selected keyframes in one click.
 
+Special thanks to @ahmadyacz for the new PFlow UI
+
 ![PFlow panel](docs/screenshot2.png)
 
 > Independent, unofficial community script by Puuncture. Not affiliated with or endorsed by the EffectCraft authors or any other panel or company. Written from scratch against After Effects' documented scripting API, so it should also run in After Effects.
